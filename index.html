@@ -34,73 +34,6 @@
             line-height: 1.6;
         }
 
-        /* Top Header */
-        .top-bar {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 8px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-        }
-
-        .top-info span {
-            margin-right: 20px;
-        }
-
-        .top-info i {
-            color: var(--secondary);
-            margin-right: 5px;
-        }
-
-        /* Navigation */
-        header {
-            position: sticky;
-            top: 0;
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .logo span {
-            color: var(--secondary);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 25px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-
         .cta-btn {
             background-color: var(--secondary);
             color: var(--primary);
@@ -190,6 +123,7 @@
         .section-title h2 {
             font-size: 2.2rem;
             color: var(--primary);
+            text-transform: uppercase;
         }
 
         .section-title div {
@@ -203,6 +137,12 @@
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
@@ -229,6 +169,52 @@
         .card h3 {
             margin-bottom: 10px;
             color: var(--primary);
+        }
+
+        /* Fee Structure Cards Specific Styling */
+        .fee-card {
+            border-top: 4px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .fee-header {
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .fee-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .price-tag {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .fee-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .fee-features li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #E0E0E0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark);
+        }
+
+        .fee-features li i {
+            font-size: 1rem;
+            color: var(--secondary);
+            margin-bottom: 0;
         }
 
         /* Facilities & Highlights List */
@@ -273,7 +259,7 @@
         }
 
         form button {
-            background: var(--primary);
+            background: #25D366;
             color: var(--white);
             padding: 12px;
             border: none;
@@ -282,11 +268,14 @@
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         form button:hover {
-            background: var(--secondary);
-            color: var(--primary);
+            background: #1eb954;
         }
 
         /* Floating WhatsApp Button */
@@ -325,38 +314,11 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .top-bar { display: none; }
-            .nav-links { display: none; }
             .hero-content h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="top-info">
-            <span><i class="fas fa-envelope"></i> anglophilealc@gmail.com</span>
-            <span><i class="fas fa-phone"></i> +92 336 2479433</span>
-            <span><i class="fas fa-clock"></i> Mon - Thu: 9 AM - 10 PM</span>
-        </div>
-        <div>⭐ 4.9 Rating (719 Reviews)</div>
-    </div>
-
-    <!-- Navigation Header -->
-    <header>
-        <nav>
-            <div class="logo">ANGLOPHILE <span>BY SIR IMRAN</span></div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#why-us">Why Choose Us</a></li>
-                <li><a href="#admission">Admission</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="#admission" class="cta-btn">Apply Now</a>
-        </nav>
-    </header>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -404,8 +366,7 @@
             </div>
             <div class="card">
                 <i class="fas fa-comments"></i>
-                <h3>Basic to Advanced  English
-                </h3>
+                <h3>Basic to Advanced English</h3>
                 <p>Interactive sessions designed to improve pronunciation, vocabulary, sentence structure, and real-world conversation skills.</p>
             </div>
             <div class="card">
@@ -416,8 +377,53 @@
         </div>
     </section>
 
+    <!-- FEES STRUCTURE AND COURSE OUTLINE SECTION -->
+    <section id="fees-outline" style="background-color: var(--light);">
+        <div class="section-title">
+            <h2>FEES STRUCTURE AND COURSE OUTLINE</h2>
+            <div></div>
+        </div>
+        <div class="grid-2">
+            <!-- English Language Course -->
+            <div class="card fee-card">
+                <div>
+                    <div class="fee-header">
+                        <h3>English Language Course</h3>
+                        <div class="price-tag">PKR 18,000</div>
+                    </div>
+                    <ul class="fee-features">
+                        <li><i class="fas fa-clock"></i> <strong>Duration:</strong> 3 Months</li>
+                        <li><i class="fas fa-calendar-alt"></i> <strong>Schedule:</strong> 5 Days a Week</li>
+                        <li><i class="fas fa-hourglass-half"></i> <strong>Daily Timing:</strong> 2 Hours Daily (2 Teachers)</li>
+                        <li><i class="fas fa-tag"></i> <strong>Admission Fee:</strong> No Admission Fee</li>
+                        <li><i class="fas fa-laptop-house"></i> <strong>Mode:</strong> Online / On Campus</li>
+                    </ul>
+                </div>
+                <a href="#admission" class="cta-btn" style="text-align: center; margin-top: 15px;">Enroll Now</a>
+            </div>
+
+            <!-- IELTS Preparation Course -->
+            <div class="card fee-card">
+                <div>
+                    <div class="fee-header">
+                        <h3>IELTS Preparation</h3>
+                        <div class="price-tag">PKR 25,000</div>
+                    </div>
+                    <ul class="fee-features">
+                        <li><i class="fas fa-clock"></i> <strong>Duration:</strong> 8 to 10 Weeks</li>
+                        <li><i class="fas fa-clock"></i> <strong>Afternoon Slot:</strong> 5:30 PM</li>
+                        <li><i class="fas fa-moon"></i> <strong>Evening Slot:</strong> 7:30 PM</li>
+                        <li><i class="fas fa-tag"></i> <strong>Admission Fee:</strong> No Admission Fee</li>
+                        <li><i class="fas fa-laptop-house"></i> <strong>Mode:</strong> Online / On Campus</li>
+                    </ul>
+                </div>
+                <a href="#admission" class="cta-btn" style="text-align: center; margin-top: 15px;">Enroll Now</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Why Choose Us -->
-    <section id="why-us" style="background-color: var(--light);">
+    <section id="why-us">
         <div class="section-title">
             <h2>Why Choose Anglophile?</h2>
             <div></div>
@@ -449,29 +455,29 @@
     </section>
 
     <!-- Online Admission Form Section -->
-    <section id="admission">
+    <section id="admission" style="background-color: var(--light);">
         <div class="section-title">
             <h2>Online Admission Form</h2>
             <div></div>
         </div>
         <div class="contact-container">
             <form id="admissionForm">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <input type="tel" placeholder="Phone / WhatsApp Number" required>
-                <select required>
+                <input type="text" id="fullName" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="tel" id="phone" placeholder="Phone / WhatsApp Number" required>
+                <select id="course" required>
                     <option value="">Select Course</option>
                     <option value="IELTS Preparation">IELTS Preparation</option>
                     <option value="Spoken English">Spoken English</option>
                     <option value="Confidence Building">Confidence Building</option>
                 </select>
-                <select required>
+                <select id="mode" required>
                     <option value="">Preferred Mode</option>
-                    <option value="Onsite">Onsite (Gulshan-e-Iqbal)</option>
-                    <option value="Online">Online Classes</option>
+                    <option value="Onsite (Gulshan-e-Iqbal)">Onsite (Gulshan-e-Iqbal)</option>
+                    <option value="Online Classes">Online Classes</option>
                 </select>
-                <textarea rows="4" placeholder="Additional Notes or Questions"></textarea>
-                <button type="submit">Submit Application</button>
+                <textarea id="notes" rows="4" placeholder="Additional Notes or Questions"></textarea>
+                <button type="submit"><i class="fab fa-whatsapp"></i> Submit via WhatsApp</button>
             </form>
 
             <!-- Opening Hours Panel -->
@@ -486,7 +492,7 @@
     </section>
 
     <!-- Contact & Location -->
-    <section id="contact" style="background-color: var(--light);">
+    <section id="contact">
         <div class="section-title">
             <h2>Visit & Contact Us</h2>
             <div></div>
@@ -523,11 +529,35 @@
     </footer>
 
     <script>
-        // Simple form handling alert
+        // Form submission directly redirecting to WhatsApp
         document.getElementById('admissionForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for applying! Our team will contact you shortly via phone or WhatsApp.');
-            this.reset();
+            
+            // Get form values
+            const name = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const course = document.getElementById('course').value;
+            const mode = document.getElementById('mode').value;
+            const notes = document.getElementById('notes').value || 'None';
+
+            // Phone number to receive the form details
+            const whatsappNumber = '923362479433';
+
+            // Construct structured message
+            let message = `*NEW ADMISSION APPLICATION*%0A%0A`;
+            message += `*Name:* ${encodeURIComponent(name)}%0A`;
+            message += `*Email:* ${encodeURIComponent(email)}%0A`;
+            message += `*Phone:* ${encodeURIComponent(phone)}%0A`;
+            message += `*Course Selected:* ${encodeURIComponent(course)}%0A`;
+            message += `*Preferred Mode:* ${encodeURIComponent(mode)}%0A`;
+            message += `*Additional Notes:* ${encodeURIComponent(notes)}`;
+
+            // Create WhatsApp Web/App Link
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, '_blank');
         });
     </script>
 </body>
